@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy · Misty Tart Reverie</title>
+  <!-- Premium minimal aesthetic · handcrafted UI · no template -->
+  <style>
+    /* ----- RESET & BASE (handcrafted) ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f6f3ef; /* warm mist */
+      font-family: 'Garamond', 'Times New Roman', 'Georgia', serif;
+      color: #2b2a28;
+      line-height: 1.55;
+      padding: 0 1.2rem;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ----- BRAND IDENTITY · Misty Tart Reverie ----- */
+    :root {
+      --brand: #6f5b4b;        /* tart earth */
+      --brand-light: #b7a392;
+      --mist: #e2dcd5;
+      --paper: #faf8f5;
+      --ink: #1f1e1b;
+      --accent: #b17f6a;       /* warm blush */
+      --shadow-sm: 0 8px 20px -12px rgba(40, 30, 20, 0.12);
+      --shadow-floating: 0 20px 40px -18px rgba(30, 20, 10, 0.18);
+      --radius-card: 0px;      /* sharp, modern */
+      --radius-btn: 0px;
+    }
+
+    /* ----- TYPOGRAPHY (premium serif + sans) ----- */
+    h1, h2, h3, h4 {
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #1f1c18;
+    }
+    h1 { font-size: 3.2rem; font-weight: 300; }
+    h2 { font-size: 2.2rem; margin-top: 2.6rem; border-left: 4px solid var(--accent); padding-left: 1.2rem; }
+    h3 { font-size: 1.6rem; margin-top: 1.8rem; font-weight: 400; }
+    p { margin: 1.2rem 0; color: #2f2c27; }
+    .small { font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; color: #7b6e62; }
+
+    /* ----- LAYOUT SYSTEM · handcrafted grid ----- */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* ----- NAVIGATION · floating, minimal, unique ----- */
+    .nav-original {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0 0.6rem;
+      border-bottom: 1px solid rgba(100, 80, 70, 0.15);
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+      font-weight: 300;
+      background: var(--paper);
+      padding: 0.2rem 1.8rem 0.2rem 0.8rem;
+      border-right: 2px solid var(--brand-light);
+    }
+    .logo i { font-style: normal; background: var(--accent); color: #faf8f5; padding: 0.1rem 0.5rem; margin-right: 0.3rem; }
+    .nav-links {
+      display: flex;
+      gap: 2.8rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: 'Inter', 'Helvetica', sans-serif;
+      font-weight: 300;
+    }
+    .nav-links a { padding: 0.2rem 0; border-bottom: 1px solid transparent; transition: 0.2s; }
+    .nav-links a:hover { border-bottom-color: var(--accent); color: #1f1c18; }
+
+    /* ----- PRIVACY PAGE · handcrafted editorial (legal & clear) ----- */
+    .privacy-hero {
+      margin: 2.8rem 0 1.8rem;
+      border-bottom: 1px solid #d4c9bd;
+      padding-bottom: 1.4rem;
+    }
+    .privacy-hero h1 {
+      font-size: 3.4rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+    .privacy-hero p {
+      font-size: 1.2rem;
+      max-width: 720px;
+      color: #4f443b;
+    }
+
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3.4rem;
+      margin: 2.4rem 0 4rem;
+    }
+
+    .privacy-main {
+      background: var(--paper);
+      padding: 2.8rem 2.8rem 3rem;
+      box-shadow: var(--shadow-sm);
+      border-bottom: 6px solid var(--brand-light);
+    }
+    .privacy-main h2 {
+      margin-top: 2.4rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 1.2rem;
+      font-size: 1.8rem;
+    }
+    .privacy-main h2:first-of-type { margin-top: 0; }
+    .privacy-main p {
+      margin: 1rem 0;
+    }
+    .privacy-main ul {
+      margin: 0.8rem 0 1.2rem 1.8rem;
+      list-style: square;
+      color: #2f2c27;
+    }
+    .privacy-main ul li { margin: 0.4rem 0; }
+    .privacy-main .highlight-box {
+      background: #ede8e2;
+      padding: 1.6rem 1.8rem;
+      margin: 1.8rem 0;
+      border-left: 6px solid var(--accent);
+    }
+    .privacy-main .highlight-box p { margin: 0.2rem 0; }
+
+    .privacy-side {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .privacy-card {
+      background: #ede8e2;
+      padding: 2rem 1.8rem;
+      box-shadow: var(--shadow-sm);
+      border-left: 6px solid var(--accent);
+    }
+    .privacy-card h3 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      border-left: 0;
+      padding-left: 0;
+    }
+    .privacy-card p { margin: 0.4rem 0; }
+    .privacy-card .detail {
+      font-size: 0.95rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px dotted #cbb9aa;
+    }
+    .privacy-card .detail:last-child { border-bottom: 0; }
+    .privacy-card .direct-email {
+      background: #faf8f5;
+      padding: 0.6rem 1.2rem;
+      display: inline-block;
+      border: 1px solid #b7a392;
+      font-size: 0.95rem;
+    }
+    .chip {
+      background: #d6cbc0;
+      padding: 0.2rem 1.2rem;
+      border-radius: 0px;
+      display: inline-block;
+      margin-right: 0.6rem;
+    }
+
+    /* ----- FOOTER · handcrafted, no template ----- */
+    .footer-craft {
+      margin-top: 4rem;
+      padding: 2.8rem 0 1.8rem;
+      border-top: 2px solid #d4c9bd;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.4rem;
+      font-size: 0.9rem;
+    }
+    .footer-craft .col p { margin: 0.3rem 0; }
+    .footer-craft .col strong { font-weight: 500; letter-spacing: 0.02em; }
+    .footer-craft .col a { display: block; padding: 0.15rem 0; border-bottom: 1px dotted transparent; }
+    .footer-craft .col a:hover { border-bottom-color: var(--accent); }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .privacy-grid { grid-template-columns: 1fr; }
+      .footer-craft { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; flex-wrap: wrap; }
+      .footer-craft { grid-template-columns: 1fr; }
+      h1 { font-size: 2.4rem; }
+      .privacy-main { padding: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- NAVIGATION · floating minimal -->
+  <nav class="nav-original">
+    <div class="logo"><i>◆</i> Misty Tart Reverie</div>
+    <div class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html" style="border-bottom-color: var(--accent);">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+      <li><a href="categories.html">CATEGORIES</a></li>
+      <li><a href="disclamier.html">DISCLAMIER</a></li>
+    </div>
+  </nav>
+
+  <!-- PRIVACY PAGE · handcrafted editorial -->
+  <div class="privacy-hero">
+    <h1>privacy · reverence</h1>
+    <p>Your data is treated with the same care we give to words. This policy outlines what we collect, why, and how we protect it.</p>
+  </div>
+
+  <div class="privacy-grid">
+    <!-- main privacy content -->
+    <div class="privacy-main">
+      <h2>1. Information we collect</h2>
+      <p>We collect minimal, essential data to maintain the integrity of our correspondence and improve the reading experience. This includes:</p>
+      <ul>
+        <li><strong>Contact details</strong> — name, email address, and message content when you use our contact form.</li>
+        <li><strong>Usage data</strong> — anonymised analytics (page views, referral sources) to understand readership patterns.</li>
+        <li><strong>Cookies</strong> — only functional and preference cookies; we never sell or misuse tracking data.</li>
+      </ul>
+
+      <h2>2. How we use your information</h2>
+      <p>We use your data solely for the purposes you expect:</p>
+      <ul>
+        <li>To respond to inquiries, pitches, or feedback.</li>
+        <li>To send occasional newsletters (only if you explicitly opt in).</li>
+        <li>To improve our content and user experience through aggregated analytics.</li>
+      </ul>
+      <div class="highlight-box">
+        <p><strong>✧ pledge:</strong> We never share, sell, or rent your personal data to third parties. Your trust is our currency.</p>
+      </div>
+
+      <h2>3. Data storage & security</h2>
+      <p>All data is stored on secure servers with industry-standard encryption. We retain contact form submissions for a maximum of 24 months, after which they are securely deleted. You may request deletion or correction at any time.</p>
+
+      <h2>4. Your rights</h2>
+      <p>You have the right to access, amend, or delete your personal data. For any request, please contact us via the details below. We will respond within 30 days.</p>
+      <ul>
+        <li>Right to access — receive a copy of the data we hold.</li>
+        <li>Right to rectification — correct inaccurate or incomplete data.</li>
+        <li>Right to erasure — request deletion of your data.</li>
+      </ul>
+
+      <h2>5. Third-party links</h2>
+      <p>Our site may contain links to external platforms (e.g., social media, bookstores). We are not responsible for their privacy practices. We encourage you to read their policies before engaging.</p>
+
+      <h2>6. Updates to this policy</h2>
+      <p>We may update this policy to reflect changes in law or our practices. The latest version will always be published on this page, with the effective date noted.</p>
+      <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 1.8rem;">Effective: 1 May 2026 · Last revised: 16 July 2026</p>
+    </div>
+
+    <!-- sidebar: contact & quick links -->
+    <div class="privacy-side">
+      <div class="privacy-card">
+        <h3>privacy contact</h3>
+        <div class="detail"><span style="font-weight: 400; letter-spacing: 0.02em;">✉</span> <a href="mailto:privacy@mistytart.com" class="direct-email">privacy@mistytart.com</a></div>
+        <div class="detail"><span style="font-weight: 400; letter-spacing: 0.02em;">⌛</span> response within 48h</div>
+        <div class="detail"><span style="font-weight: 400; letter-spacing: 0.02em;">📍</span> data protection officer · london</div>
+        <p style="margin-top: 1.2rem; font-size: 0.9rem; opacity: 0.8;">For data subject requests, please use the email above.</p>
+      </div>
+
+      <div class="privacy-card" style="border-left-color: #b7a392;">
+        <h3>quick links</h3>
+        <div style="margin: 0.6rem 0;"><a href="#" style="border-bottom: 1px dotted #b7a392;">cookie policy</a></div>
+        <div style="margin: 0.6rem 0;"><a href="#" style="border-bottom: 1px dotted #b7a392;">terms & conditions</a></div>
+        <div style="margin: 0.6rem 0;"><a href="#" style="border-bottom: 1px dotted #b7a392;">editorial guidelines</a></div>
+        <div style="margin: 0.6rem 0;"><a href="#" style="border-bottom: 1px dotted #b7a392;">accessibility</a></div>
+        <div style="margin-top: 1rem; font-size: 0.85rem; border-top: 1px solid #cbb9aa; padding-top: 0.8rem;">
+          <span class="chip">GDPR</span>
+          <span class="chip">CCPA</span>
+          <span class="chip">ePrivacy</span>
+        </div>
+      </div>
+
+      <div class="privacy-card" style="border-left-color: #b7a392;">
+        <h3>trust & transparency</h3>
+        <p style="font-size: 0.9rem;">We are committed to minimal data collection. No surveillance, no profiling, no third-party data brokers. Just a quiet, respectful exchange.</p>
+        <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.6rem;">🔒 encrypted connection · TLS 1.3</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER · handcrafted, unique columns -->
+  <footer class="footer-craft">
+    <div class="col">
+      <strong style="font-size: 1.4rem; font-weight: 300;">Misty Tart</strong>
+      <p style="margin-top: 0.4rem;">Reverie · authority · substance</p>
+      <p style="font-size: 0.8rem; opacity: 0.6;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col">
+      <strong>explore</strong>
+      <a href="#">home</a>
+      <a href="#">blog</a>
+      <a href="#">categories</a>
+      <a href="#">authors</a>
+    </div>
+    <div class="col">
+      <strong>info</strong>
+      <a href="#">about</a>
+      <a href="#">contact</a>
+      <a href="#">privacy policy</a>
+      <a href="#">terms & conditions</a>
+    </div>
+    <div class="col">
+      <strong>legal</strong>
+      <a href="#">cookie policy</a>
+      <a href="#">disclaimer</a>
+      <a href="#">editorial policy</a>
+      <a href="#">sitemap</a>
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

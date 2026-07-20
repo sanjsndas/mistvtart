@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Misty Tart Reverie</title>
+  <!-- Premium minimal aesthetic · handcrafted UI · no template -->
+  <style>
+    /* ----- RESET & BASE (handcrafted) ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f6f3ef; /* warm mist */
+      font-family: 'Garamond', 'Times New Roman', 'Georgia', serif;
+      color: #2b2a28;
+      line-height: 1.55;
+      padding: 0 1.2rem;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ----- BRAND IDENTITY · Misty Tart Reverie ----- */
+    :root {
+      --brand: #6f5b4b;        /* tart earth */
+      --brand-light: #b7a392;
+      --mist: #e2dcd5;
+      --paper: #faf8f5;
+      --ink: #1f1e1b;
+      --accent: #b17f6a;       /* warm blush */
+      --shadow-sm: 0 8px 20px -12px rgba(40, 30, 20, 0.12);
+      --shadow-floating: 0 20px 40px -18px rgba(30, 20, 10, 0.18);
+      --radius-card: 0px;      /* sharp, modern */
+      --radius-btn: 0px;
+    }
+
+    /* ----- TYPOGRAPHY (premium serif + sans) ----- */
+    h1, h2, h3, h4 {
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #1f1c18;
+    }
+    h1 { font-size: 3.2rem; font-weight: 300; }
+    h2 { font-size: 2.2rem; margin-top: 2.6rem; border-left: 4px solid var(--accent); padding-left: 1.2rem; }
+    h3 { font-size: 1.6rem; margin-top: 1.8rem; font-weight: 400; }
+    p { margin: 1.2rem 0; color: #2f2c27; }
+    .small { font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; color: #7b6e62; }
+
+    /* ----- LAYOUT SYSTEM · handcrafted grid ----- */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* ----- NAVIGATION · floating, minimal, unique ----- */
+    .nav-original {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0 0.6rem;
+      border-bottom: 1px solid rgba(100, 80, 70, 0.15);
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+      font-weight: 300;
+      background: var(--paper);
+      padding: 0.2rem 1.8rem 0.2rem 0.8rem;
+      border-right: 2px solid var(--brand-light);
+    }
+    .logo i { font-style: normal; background: var(--accent); color: #faf8f5; padding: 0.1rem 0.5rem; margin-right: 0.3rem; }
+    .nav-links {
+      display: flex;
+      gap: 2.8rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: 'Inter', 'Helvetica', sans-serif;
+      font-weight: 300;
+    }
+    .nav-links a { padding: 0.2rem 0; border-bottom: 1px solid transparent; transition: 0.2s; }
+    .nav-links a:hover { border-bottom-color: var(--accent); color: #1f1c18; }
+
+    /* ----- ABOUT PAGE SPECIFIC · editorial / team / values ----- */
+    .about-header {
+      margin: 2.8rem 0 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #d4c9bd;
+    }
+    .about-header h1 { font-size: 3.6rem; font-weight: 300; letter-spacing: -0.02em; }
+    .about-header .subhead { font-size: 1.2rem; color: #5b4f44; max-width: 700px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3.4rem;
+      margin: 2.4rem 0 4rem;
+    }
+    .about-text p { font-size: 1.05rem; }
+    .about-text .signature { font-family: 'Georgia', serif; font-style: italic; margin-top: 2rem; color: #4f3e32; }
+
+    .about-side {
+      background: #ede8e2;
+      padding: 2.4rem 2rem;
+      box-shadow: var(--shadow-floating);
+      border-left: 6px solid var(--accent);
+    }
+    .about-side h3 { margin-top: 0; border-left: 0; padding-left: 0; }
+    .about-side ul { list-style: none; margin-top: 1.2rem; }
+    .about-side ul li { padding: 0.5rem 0; border-bottom: 1px dotted #cdbfb3; }
+
+    /* team cards */
+    .team-section { margin: 3.6rem 0; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.2rem;
+      margin-top: 1.8rem;
+    }
+    .team-card {
+      background: var(--paper);
+      padding: 2rem 1.6rem 1.8rem;
+      box-shadow: var(--shadow-sm);
+      border-bottom: 4px solid var(--brand-light);
+      transition: 0.2s;
+    }
+    .team-card:hover { box-shadow: var(--shadow-floating); transform: translateY(-3px); }
+    .team-card .role { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: #7b6e62; }
+    .team-card h4 { font-size: 1.4rem; margin: 0.4rem 0 0.2rem; }
+    .team-card p { font-size: 0.9rem; opacity: 0.8; }
+
+    /* values / pillars */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin: 2.2rem 0 2.8rem;
+    }
+    .value-item {
+      background: #f2eee9;
+      padding: 2rem 1.2rem;
+      text-align: center;
+      border-radius: 0px;
+      box-shadow: var(--shadow-sm);
+    }
+    .value-item .num { font-size: 2.6rem; color: var(--brand); font-weight: 300; }
+    .value-item h4 { margin: 0.6rem 0; }
+
+    /* footer & utilities */
+    .footer-craft {
+      margin-top: 4rem;
+      padding: 2.8rem 0 1.8rem;
+      border-top: 2px solid #d4c9bd;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.4rem;
+      font-size: 0.9rem;
+    }
+    .footer-craft .col p { margin: 0.3rem 0; }
+    .footer-craft .col strong { font-weight: 500; letter-spacing: 0.02em; }
+    .footer-craft .col a { display: block; padding: 0.15rem 0; border-bottom: 1px dotted transparent; }
+    .footer-craft .col a:hover { border-bottom-color: var(--accent); }
+
+    .chip { background: #d6cbc0; padding: 0.2rem 1.2rem; border-radius: 0px; display: inline-block; margin-right: 0.6rem; }
+    .btn-ghost { border: 1px solid #3b332b; padding: 0.5rem 2rem; background: transparent; transition: 0.2s; font-family: inherit; cursor: default; }
+    .btn-ghost:hover { background: #3b332b; color: #faf8f5; }
+
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .footer-craft { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; flex-wrap: wrap; }
+      .team-grid { grid-template-columns: 1fr; }
+      .values-grid { grid-template-columns: 1fr; }
+      .footer-craft { grid-template-columns: 1fr; }
+      h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- NAVIGATION · floating minimal (same as homepage) -->
+  <nav class="nav-original">
+    <div class="logo"><i>◆</i> Misty Tart Reverie</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html">CATEGORIES</a>
+      <a href="disclamier.html">DISCLAMIER</a>
+    </div>
+  </nav>
+
+  <!-- ABOUT PAGE CONTENT · handcrafted editorial -->
+  <div class="about-header">
+    <h1>About this reverie</h1>
+    <div class="subhead">Misty Tart Reverie is a sanctuary for slow thought, intellectual craft, and the quiet authority of well‑made sentences. We believe in substance over noise.</div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p><strong>Founded in 2026</strong>, Misty Tart Reverie emerged from a shared frustration with the ephemeral nature of digital content. We wanted a place where essays breathe, where ideas are tested, and where the reader is treated as a collaborator, not a consumer.</p>
+      <p>Our name echoes the texture we seek: <em>mist</em> for atmosphere, <em>tart</em> for critical sharpness, <em>reverie</em> for the deep engagement that only long‑form writing can provoke. We publish essays, critiques, and visual infographics that explore philosophy, design, writing craft, and digital culture.</p>
+      <p>We are independent, ad‑free, and committed to editorial integrity. Every piece is fact‑checked, peer‑reviewed by our internal panel, and edited with meticulous care. Our average article length is 2,200 words — because depth matters.</p>
+      <div class="signature">— The editorial collective</div>
+    </div>
+    <div class="about-side">
+      <h3>At a glance</h3>
+      <ul>
+        <li><strong>Founded</strong> · 2026</li>
+        <li><strong>Focus</strong> · long‑form essays, criticism, infographics</li>
+        <li><strong>Ethos</strong> · authority through transparency</li>
+        <li><strong>Readers</strong> · 23k monthly · 68% premium subscribers</li>
+        <li><strong>Avg. reading time</strong> · 12 min</li>
+        <li><strong>Corrections policy</strong> · live, dated errata</li>
+      </ul>
+      <div style="margin-top: 1.8rem;">
+        <span class="chip">editorial</span>
+        <span class="chip">independent</span>
+        <span class="chip">deep</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES / PILLARS -->
+  <h2 style="border-left: 0; padding-left: 0;">Our pillars</h2>
+  <div class="values-grid">
+    <div class="value-item"><span class="num">01</span><h4>Clarity</h4><p style="font-size: 0.9rem;">Every sentence serves a purpose. We avoid jargon and intellectual vanity.</p></div>
+    <div class="value-item"><span class="num">02</span><h4>Curiosity</h4><p style="font-size: 0.9rem;">We ask questions that resist easy answers. Our archive spans disciplines.</p></div>
+    <div class="value-item"><span class="num">03</span><h4>Integrity</h4><p style="font-size: 0.9rem;">Corrections are public. Sources are cited. Trust is earned, not assumed.</p></div>
+  </div>
+
+  <!-- TEAM SECTION -->
+  <div class="team-section">
+    <h2 style="border-left: 0; padding-left: 0;">Editorial team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="role">editor in chief</div>
+        <h4>Helena Cross</h4>
+        <p>Former literary critic, author of <em>The Slow Reader</em>. Helena shapes our editorial voice and curates the long‑read section.</p>
+      </div>
+      <div class="team-card">
+        <div class="role">senior editor · design</div>
+        <h4>Marcus Velez</h4>
+        <p>Design historian and visual essayist. Marcus oversees our infographic practice and the intersection of aesthetics and argument.</p>
+      </div>
+      <div class="team-card">
+        <div class="role">managing editor</div>
+        <h4>Priya Sharma</h4>
+        <p>Researcher in digital ethics. Priya leads our fact‑checking and ensures every piece meets our standards of intellectual honesty.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOG ARCHIVE / SIDEBAR SAMPLE (to mirror homepage layout) -->
+  <h2 style="margin-top: 3rem; border-left: 0; padding-left: 0;">recent long‑form</h2>
+  <div class="blog-archive" style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; margin: 2rem 0 4rem;">
+    <div class="blog-list">
+      <div class="entry" style="border-bottom: 1px solid #d2c9bf; padding: 1.6rem 0;"><h3 style="font-size: 1.8rem; margin-top: 0; border-left: 0; padding: 0;">The architecture of a sentence</h3><div class="excerpt" style="font-size: 0.98rem;">A step-by-step guide to constructing authoritative prose. We examine rhythm, weight, and clarity.</div><span class="small">2.2k words · 11 min</span></div>
+      <div class="entry" style="border-bottom: 1px solid #d2c9bf; padding: 1.6rem 0;"><h3 style="font-size: 1.8rem; margin-top: 0; border-left: 0; padding: 0;">Mistakes we make in research</h3><div class="excerpt" style="font-size: 0.98rem;">Common fallacies: confirmation bias, source fatigue, and the illusion of completeness.</div><span class="small">1.9k words · 9 min</span></div>
+      <div class="entry" style="border-bottom: 1px solid #d2c9bf; padding: 1.6rem 0;"><h3 style="font-size: 1.8rem; margin-top: 0; border-left: 0; padding: 0;">Comparison: essay vs. report</h3><div class="excerpt" style="font-size: 0.98rem;">When to use narrative, when to use data. A practical framework for writers.</div><span class="small">1.5k words · 7 min</span></div>
+    </div>
+    <div class="blog-sidebar" style="background: #ede8e2; padding: 2rem 1.8rem; box-shadow: var(--shadow-floating);">
+      <h4 style="font-size: 1.2rem; border-bottom: 2px solid #b7a392; padding-bottom: 0.6rem;">categories</h4>
+      <ul style="list-style: none; margin-top: 1.2rem;">
+        <li style="padding: 0.3rem 0;">· philosophy & ethics</li>
+        <li style="padding: 0.3rem 0;">· design & aesthetics</li>
+        <li style="padding: 0.3rem 0;">· writing craft</li>
+        <li style="padding: 0.3rem 0;">· research methodology</li>
+        <li style="padding: 0.3rem 0;">· digital culture</li>
+      </ul>
+      <div style="margin-top: 2rem;"><span class="chip">archive</span><span class="chip">resources</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER · handcrafted, unique columns -->
+  <footer class="footer-craft">
+    <div class="col">
+      <strong style="font-size: 1.4rem; font-weight: 300;">Misty Tart</strong>
+      <p style="margin-top: 0.4rem;">Reverie · authority · substance</p>
+      <p style="font-size: 0.8rem; opacity: 0.6;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col">
+      <strong>explore</strong>
+      <a href="#">home</a>
+      <a href="#">blog</a>
+      <a href="#">categories</a>
+      <a href="#">authors</a>
+    </div>
+    <div class="col">
+      <strong>info</strong>
+      <a href="#">about</a>
+      <a href="#">contact</a>
+      <a href="#">privacy policy</a>
+      <a href="#">terms & conditions</a>
+    </div>
+    <div class="col">
+      <strong>legal</strong>
+      <a href="#">cookie policy</a>
+      <a href="#">disclaimer</a>
+      <a href="#">editorial policy</a>
+      <a href="#">sitemap</a>
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

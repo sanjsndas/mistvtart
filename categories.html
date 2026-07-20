@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Categories · Misty Tart Reverie</title>
+  <!-- Premium minimal aesthetic · handcrafted UI · no template -->
+  <style>
+    /* ----- RESET & BASE (handcrafted) ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f6f3ef; /* warm mist */
+      font-family: 'Garamond', 'Times New Roman', 'Georgia', serif;
+      color: #2b2a28;
+      line-height: 1.55;
+      padding: 0 1.2rem;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ----- BRAND IDENTITY · Misty Tart Reverie ----- */
+    :root {
+      --brand: #6f5b4b;        /* tart earth */
+      --brand-light: #b7a392;
+      --mist: #e2dcd5;
+      --paper: #faf8f5;
+      --ink: #1f1e1b;
+      --accent: #b17f6a;       /* warm blush */
+      --shadow-sm: 0 8px 20px -12px rgba(40, 30, 20, 0.12);
+      --shadow-floating: 0 20px 40px -18px rgba(30, 20, 10, 0.18);
+      --radius-card: 0px;      /* sharp, modern */
+      --radius-btn: 0px;
+    }
+
+    /* ----- TYPOGRAPHY (premium serif + sans) ----- */
+    h1, h2, h3, h4 {
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #1f1c18;
+    }
+    h1 { font-size: 3.2rem; font-weight: 300; }
+    h2 { font-size: 2.2rem; margin-top: 2.6rem; border-left: 4px solid var(--accent); padding-left: 1.2rem; }
+    h3 { font-size: 1.6rem; margin-top: 1.8rem; font-weight: 400; }
+    p { margin: 1.2rem 0; color: #2f2c27; }
+    .small { font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; color: #7b6e62; }
+
+    /* ----- LAYOUT SYSTEM · handcrafted grid ----- */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* ----- NAVIGATION · floating, minimal, unique ----- */
+    .nav-original {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0 0.6rem;
+      border-bottom: 1px solid rgba(100, 80, 70, 0.15);
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+      font-weight: 300;
+      background: var(--paper);
+      padding: 0.2rem 1.8rem 0.2rem 0.8rem;
+      border-right: 2px solid var(--brand-light);
+    }
+    .logo i { font-style: normal; background: var(--accent); color: #faf8f5; padding: 0.1rem 0.5rem; margin-right: 0.3rem; }
+    .nav-links {
+      display: flex;
+      gap: 2.8rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: 'Inter', 'Helvetica', sans-serif;
+      font-weight: 300;
+    }
+    .nav-links a { padding: 0.2rem 0; border-bottom: 1px solid transparent; transition: 0.2s; }
+    .nav-links a:hover { border-bottom-color: var(--accent); color: #1f1c18; }
+
+    /* ----- CATEGORIES PAGE SPECIFIC · editorial / grid / cards ----- */
+    .categories-header {
+      margin: 2.8rem 0 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #d4c9bd;
+    }
+    .categories-header h1 { font-size: 3.6rem; font-weight: 300; letter-spacing: -0.02em; }
+    .categories-header .subhead { font-size: 1.2rem; color: #5b4f44; max-width: 700px; }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.4rem;
+      margin: 2.8rem 0 4rem;
+    }
+
+    .category-card {
+      background: var(--paper);
+      box-shadow: var(--shadow-sm);
+      padding: 1.8rem 1.8rem 2rem;
+      border-left: 4px solid var(--brand-light);
+      transition: 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .category-card:hover {
+      box-shadow: var(--shadow-floating);
+      border-left-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .category-card .cat-icon {
+      font-size: 2.4rem;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+      color: var(--accent);
+    }
+    .category-card h3 {
+      margin-top: 0.2rem;
+      font-size: 1.8rem;
+      font-weight: 400;
+      border-left: 0;
+      padding-left: 0;
+    }
+    .category-card p {
+      font-size: 0.98rem;
+      margin: 0.6rem 0 1rem;
+      color: #3b352e;
+      flex: 1;
+    }
+    .category-card .meta {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #7b6e62;
+      border-top: 1px solid #e2d8cf;
+      padding-top: 0.8rem;
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .category-card .meta span { background: #ede8e2; padding: 0.1rem 0.8rem; }
+
+    .featured-category {
+      grid-column: 1 / -1;
+      background: #ede8e2;
+      padding: 2rem 2.4rem;
+      border-left: 6px solid var(--accent);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .featured-category h3 { margin: 0; border-left: 0; padding-left: 0; font-size: 2rem; }
+    .featured-category p { margin: 0.2rem 0 0; max-width: 600px; }
+    .featured-category .chip-group { margin-top: 0.4rem; }
+
+    .chip {
+      background: #d6cbc0;
+      padding: 0.2rem 1.2rem;
+      border-radius: 0px;
+      display: inline-block;
+      margin-right: 0.6rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-ghost {
+      border: 1px solid #3b332b;
+      padding: 0.5rem 2rem;
+      background: transparent;
+      transition: 0.2s;
+      font-family: inherit;
+      cursor: default;
+    }
+    .btn-ghost:hover { background: #3b332b; color: #faf8f5; }
+
+    /* footer & utilities */
+    .footer-craft {
+      margin-top: 4rem;
+      padding: 2.8rem 0 1.8rem;
+      border-top: 2px solid #d4c9bd;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.4rem;
+      font-size: 0.9rem;
+    }
+    .footer-craft .col p { margin: 0.3rem 0; }
+    .footer-craft .col strong { font-weight: 500; letter-spacing: 0.02em; }
+    .footer-craft .col a { display: block; padding: 0.15rem 0; border-bottom: 1px dotted transparent; }
+    .footer-craft .col a:hover { border-bottom-color: var(--accent); }
+
+    @media (max-width: 700px) {
+      .nav-links { gap: 1rem; flex-wrap: wrap; }
+      .footer-craft { grid-template-columns: 1fr 1fr; }
+      h1 { font-size: 2.4rem; }
+      .featured-category { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+    }
+    @media (max-width: 480px) {
+      .footer-craft { grid-template-columns: 1fr; }
+      .category-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- NAVIGATION · floating minimal (consistent with terms) -->
+  <nav class="nav-original">
+    <div class="logo"><i>◆</i> Misty Tart Reverie</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html">CATEGORIES</a>
+      <a href="disclamier.html">DISCLAMIER</a>
+    </div>
+  </nav>
+
+  <!-- CATEGORIES HEADER -->
+  <div class="categories-header">
+    <h1>Categories</h1>
+    <div class="subhead">Explore our editorial universe — essays, criticism, long‑form, and visual storytelling. Each category reflects a facet of the reverie.</div>
+  </div>
+
+  <!-- CATEGORY GRID · handcrafted cards -->
+  <div class="category-grid">
+
+    <!-- Featured / all categories highlight -->
+    <div class="featured-category">
+      <div>
+        <h3>✦ All categories</h3>
+        <p>Navigate the full spectrum of Misty Tart Reverie. From tart cultural commentary to misty prose.</p>
+        <div class="chip-group">
+          <span class="chip">17 topics</span>
+          <span class="chip">new</span>
+        </div>
+      </div>
+      <div>
+        <span class="btn-ghost" style="display: inline-block;">browse all</span>
+      </div>
+    </div>
+
+    <!-- category 1 -->
+    <div class="category-card">
+      <div class="cat-icon">☕</div>
+      <h3>Morning Tart</h3>
+      <p>Essays on beginnings, rituals, and the bitter-sweetness of dawn. Short-form reflections with a sharp edge.</p>
+      <div class="meta"><span>34 articles</span><span>· 6 min read</span></div>
+    </div>
+
+    <!-- category 2 -->
+    <div class="category-card">
+      <div class="cat-icon">🌫️</div>
+      <h3>Mist Chronicles</h3>
+      <p>Long-form narrative and atmospheric storytelling. Where memory, place, and imagination converge.</p>
+      <div class="meta"><span>21 articles</span><span>· 12 min read</span></div>
+    </div>
+
+    <!-- category 3 -->
+    <div class="category-card">
+      <div class="cat-icon">🍂</div>
+      <h3>Reverie &amp; Ruin</h3>
+      <p>Meditations on decay, beauty, and the passage of time. Poetic criticism and visual prose.</p>
+      <div class="meta"><span>18 articles</span><span>· 8 min read</span></div>
+    </div>
+
+    <!-- category 4 -->
+    <div class="category-card">
+      <div class="cat-icon">📖</div>
+      <h3>Bibliotart</h3>
+      <p>Book reviews, literary criticism, and marginalia. From classics to contemporary obscure gems.</p>
+      <div class="meta"><span>27 articles</span><span>· 7 min read</span></div>
+    </div>
+
+    <!-- category 5 -->
+    <div class="category-card">
+      <div class="cat-icon">🎨</div>
+      <h3>Palette &amp; Pigment</h3>
+      <p>Visual culture, art criticism, and the interplay of color and form. Exhibition notes and artist profiles.</p>
+      <div class="meta"><span>14 articles</span><span>· 5 min read</span></div>
+    </div>
+
+    <!-- category 6 -->
+    <div class="category-card">
+      <div class="cat-icon">🎻</div>
+      <h3>Sound &amp; Silence</h3>
+      <p>Music, field recordings, and the architecture of listening. Reviews, playlists, and sonic essays.</p>
+      <div class="meta"><span>12 articles</span><span>· 6 min read</span></div>
+    </div>
+
+    <!-- category 7 -->
+    <div class="category-card">
+      <div class="cat-icon">🌿</div>
+      <h3>Verdant Edges</h3>
+      <p>Nature writing, ecology, and the wild. Observations from gardens, forests, and forgotten paths.</p>
+      <div class="meta"><span>19 articles</span><span>· 9 min read</span></div>
+    </div>
+
+    <!-- category 8 -->
+    <div class="category-card">
+      <div class="cat-icon">✒️</div>
+      <h3>Ink &amp; Incantation</h3>
+      <p>Poetry, fragments, and lyrical experiments. Words as ritual and resistance.</p>
+      <div class="meta"><span>23 articles</span><span>· 4 min read</span></div>
+    </div>
+
+    <!-- category 9 -->
+    <div class="category-card">
+      <div class="cat-icon">🧠</div>
+      <h3>Critical Tart</h3>
+      <p>Cultural criticism, media analysis, and sharp takes on the contemporary condition.</p>
+      <div class="meta"><span>16 articles</span><span>· 10 min read</span></div>
+    </div>
+
+  </div> <!-- end category-grid -->
+
+  <!-- FOOTER · handcrafted, unique columns (same as terms) -->
+  <footer class="footer-craft">
+    <div class="col">
+      <strong style="font-size: 1.4rem; font-weight: 300;">Misty Tart</strong>
+      <p style="margin-top: 0.4rem;">Reverie · authority · substance</p>
+      <p style="font-size: 0.8rem; opacity: 0.6;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col">
+      <strong>explore</strong>
+      <a href="#">home</a>
+      <a href="#">blog</a>
+      <a href="#">categories</a>
+      <a href="#">authors</a>
+    </div>
+    <div class="col">
+      <strong>info</strong>
+      <a href="#">about</a>
+      <a href="#">contact</a>
+      <a href="#">privacy policy</a>
+      <a href="#">terms & conditions</a>
+    </div>
+    <div class="col">
+      <strong>legal</strong>
+      <a href="#">cookie policy</a>
+      <a href="#">disclaimer</a>
+      <a href="#">editorial policy</a>
+      <a href="#">sitemap</a>
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>

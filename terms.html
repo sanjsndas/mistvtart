@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms · Misty Tart Reverie</title>
+  <!-- Premium minimal aesthetic · handcrafted UI · no template -->
+  <style>
+    /* ----- RESET & BASE (handcrafted) ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f6f3ef; /* warm mist */
+      font-family: 'Garamond', 'Times New Roman', 'Georgia', serif;
+      color: #2b2a28;
+      line-height: 1.55;
+      padding: 0 1.2rem;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ----- BRAND IDENTITY · Misty Tart Reverie ----- */
+    :root {
+      --brand: #6f5b4b;        /* tart earth */
+      --brand-light: #b7a392;
+      --mist: #e2dcd5;
+      --paper: #faf8f5;
+      --ink: #1f1e1b;
+      --accent: #b17f6a;       /* warm blush */
+      --shadow-sm: 0 8px 20px -12px rgba(40, 30, 20, 0.12);
+      --shadow-floating: 0 20px 40px -18px rgba(30, 20, 10, 0.18);
+      --radius-card: 0px;      /* sharp, modern */
+      --radius-btn: 0px;
+    }
+
+    /* ----- TYPOGRAPHY (premium serif + sans) ----- */
+    h1, h2, h3, h4 {
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #1f1c18;
+    }
+    h1 { font-size: 3.2rem; font-weight: 300; }
+    h2 { font-size: 2.2rem; margin-top: 2.6rem; border-left: 4px solid var(--accent); padding-left: 1.2rem; }
+    h3 { font-size: 1.6rem; margin-top: 1.8rem; font-weight: 400; }
+    p { margin: 1.2rem 0; color: #2f2c27; }
+    .small { font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; color: #7b6e62; }
+
+    /* ----- LAYOUT SYSTEM · handcrafted grid ----- */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+
+    /* ----- NAVIGATION · floating, minimal, unique ----- */
+    .nav-original {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.8rem 0 0.6rem;
+      border-bottom: 1px solid rgba(100, 80, 70, 0.15);
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.9rem;
+      letter-spacing: -0.02em;
+      font-weight: 300;
+      background: var(--paper);
+      padding: 0.2rem 1.8rem 0.2rem 0.8rem;
+      border-right: 2px solid var(--brand-light);
+    }
+    .logo i { font-style: normal; background: var(--accent); color: #faf8f5; padding: 0.1rem 0.5rem; margin-right: 0.3rem; }
+    .nav-links {
+      display: flex;
+      gap: 2.8rem;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: 'Inter', 'Helvetica', sans-serif;
+      font-weight: 300;
+    }
+    .nav-links a { padding: 0.2rem 0; border-bottom: 1px solid transparent; transition: 0.2s; }
+    .nav-links a:hover { border-bottom-color: var(--accent); color: #1f1c18; }
+
+    /* ----- TERMS PAGE SPECIFIC · editorial / legal / clarity ----- */
+    .terms-header {
+      margin: 2.8rem 0 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid #d4c9bd;
+    }
+    .terms-header h1 { font-size: 3.6rem; font-weight: 300; letter-spacing: -0.02em; }
+    .terms-header .subhead { font-size: 1.2rem; color: #5b4f44; max-width: 700px; }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3.4rem;
+      margin: 2.4rem 0 4rem;
+    }
+    .terms-text p { font-size: 1.05rem; }
+    .terms-text .signature { font-family: 'Georgia', serif; font-style: italic; margin-top: 2rem; color: #4f3e32; }
+
+    .terms-side {
+      background: #ede8e2;
+      padding: 2.4rem 2rem;
+      box-shadow: var(--shadow-floating);
+      border-left: 6px solid var(--accent);
+    }
+    .terms-side h3 { margin-top: 0; border-left: 0; padding-left: 0; }
+    .terms-side ul { list-style: none; margin-top: 1.2rem; }
+    .terms-side ul li { padding: 0.5rem 0; border-bottom: 1px dotted #cdbfb3; }
+
+    .legal-block {
+      background: var(--paper);
+      padding: 1.8rem 2.2rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+      border-left: 4px solid var(--brand-light);
+    }
+    .legal-block h3 { margin-top: 0; border-left: 0; padding-left: 0; }
+
+    /* footer & utilities */
+    .footer-craft {
+      margin-top: 4rem;
+      padding: 2.8rem 0 1.8rem;
+      border-top: 2px solid #d4c9bd;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.4rem;
+      font-size: 0.9rem;
+    }
+    .footer-craft .col p { margin: 0.3rem 0; }
+    .footer-craft .col strong { font-weight: 500; letter-spacing: 0.02em; }
+    .footer-craft .col a { display: block; padding: 0.15rem 0; border-bottom: 1px dotted transparent; }
+    .footer-craft .col a:hover { border-bottom-color: var(--accent); }
+
+    .chip { background: #d6cbc0; padding: 0.2rem 1.2rem; border-radius: 0px; display: inline-block; margin-right: 0.6rem; }
+    .btn-ghost { border: 1px solid #3b332b; padding: 0.5rem 2rem; background: transparent; transition: 0.2s; font-family: inherit; cursor: default; }
+    .btn-ghost:hover { background: #3b332b; color: #faf8f5; }
+
+    @media (max-width: 900px) {
+      .terms-grid { grid-template-columns: 1fr; }
+      .footer-craft { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { gap: 1rem; flex-wrap: wrap; }
+      .footer-craft { grid-template-columns: 1fr; }
+      h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- NAVIGATION · floating minimal (same as homepage) -->
+  <nav class="nav-original">
+    <div class="logo"><i>◆</i> Misty Tart Reverie</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="terms.html">Terms Of Privacy</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookies.html">Cookies Policy</a>
+      <a href="categories.html">CATEGORIES</a>
+      <a href="disclamier.html">DISCLAMIER</a>
+    </div>
+  </nav>
+
+  <!-- TERMS PAGE CONTENT · handcrafted legal clarity -->
+  <div class="terms-header">
+    <h1>Terms of service</h1>
+    <div class="subhead">This page outlines the terms and conditions governing your use of Misty Tart Reverie. By accessing our content, you agree to these terms.</div>
+  </div>
+
+  <div class="terms-grid">
+    <div class="terms-text">
+      <p><strong>Effective date:</strong> July 16, 2026</p>
+      <p>Welcome to Misty Tart Reverie. These Terms of Service (“Terms”) apply to your use of our website, content, and services. Please read them carefully. By using our site, you agree to be bound by these Terms.</p>
+
+      <div class="legal-block">
+        <h3>1. Content &amp; intellectual property</h3>
+        <p>All content published on Misty Tart Reverie—including essays, infographics, illustrations, and code—is the intellectual property of the editorial collective and contributors. You may not reproduce, distribute, or create derivative works without explicit permission. Short excerpts (up to 150 words) may be shared with proper attribution.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>2. User conduct</h3>
+        <p>We value thoughtful discourse. You agree not to post or transmit any material that is unlawful, harassing, defamatory, or otherwise objectionable. Comments and contributions are moderated; we reserve the right to remove content at our sole discretion.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>3. Subscription &amp; payments</h3>
+        <p>Certain premium content requires a subscription. Subscriptions are billed monthly or annually and can be cancelled at any time. Refunds are issued on a prorated basis for unused portions. We use third-party payment processors and do not store your financial information.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>4. Third-party links</h3>
+        <p>Our site may contain links to external websites. We are not responsible for the content, privacy practices, or terms of these third-party sites. Your interactions with them are subject to their own terms.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>5. Disclaimers &amp; limitations</h3>
+        <p>All content is provided for informational and educational purposes only. We make no representations about accuracy, completeness, or suitability. To the fullest extent permitted by law, Misty Tart Reverie disclaims all warranties and liability for any loss or damage arising from your use of our site.</p>
+      </div>
+
+      <div class="legal-block">
+        <h3>6. Changes to these terms</h3>
+        <p>We may update these Terms from time to time. We will notify users of material changes via a prominent notice on our site. Your continued use after such changes constitutes acceptance of the new Terms.</p>
+      </div>
+
+      <p><strong>Governing law:</strong> These Terms are governed by the laws of the State of New York, without regard to conflict of law principles.</p>
+
+      <div class="signature">— The Misty Tart Reverie editorial team</div>
+    </div>
+
+    <div class="terms-side">
+      <h3>Quick reference</h3>
+      <ul>
+        <li><strong>Effective</strong> · July 16, 2026</li>
+        <li><strong>Last reviewed</strong> · July 1, 2026</li>
+        <li><strong>Questions?</strong> · contact@mistytart.com</li>
+        <li><strong>Privacy policy</strong> · see separate page</li>
+        <li><strong>Cookie policy</strong> · see separate page</li>
+      </ul>
+      <div style="margin-top: 1.8rem;">
+        <span class="chip">legal</span>
+        <span class="chip">transparency</span>
+        <span class="chip">terms</span>
+      </div>
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #cdbfb3;">
+        <p style="font-size: 0.9rem; margin: 0;"><strong>Acceptance</strong><br>By using this site, you accept these terms. If you do not agree, please discontinue use immediately.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER · handcrafted, unique columns -->
+  <footer class="footer-craft">
+    <div class="col">
+      <strong style="font-size: 1.4rem; font-weight: 300;">Misty Tart</strong>
+      <p style="margin-top: 0.4rem;">Reverie · authority · substance</p>
+      <p style="font-size: 0.8rem; opacity: 0.6;">© 2026 · all rights reserved</p>
+    </div>
+    <div class="col">
+      <strong>explore</strong>
+      <a href="#">home</a>
+      <a href="#">blog</a>
+      <a href="#">categories</a>
+      <a href="#">authors</a>
+    </div>
+    <div class="col">
+      <strong>info</strong>
+      <a href="#">about</a>
+      <a href="#">contact</a>
+      <a href="#">privacy policy</a>
+      <a href="#">terms & conditions</a>
+    </div>
+    <div class="col">
+      <strong>legal</strong>
+      <a href="#">cookie policy</a>
+      <a href="#">disclaimer</a>
+      <a href="#">editorial policy</a>
+      <a href="#">sitemap</a>
+    </div>
+  </footer>
+
+</div> <!-- container -->
+</body>
+</html>
